@@ -8,7 +8,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name              = "${var.vpc_name}"
+    Name = "${var.vpc_name}"
   }
 
   lifecycle {
@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "gateway" {
   vpc_id = "${aws_vpc.vpc.id}"
 
   tags = {
-    Name              = "${var.vpc_name}"
+    Name = "${var.vpc_name}"
   }
 }
 

@@ -17,7 +17,7 @@ resource "aws_subnet" "private" {
   vpc_id            = "${ aws_vpc.vpc.id }"
 
   tags {
-    Name              = "${var.vpc_name}-private"
+    Name = "${var.vpc_name}-private"
   }
 }
 
@@ -25,7 +25,7 @@ resource "aws_route_table" "private" {
   vpc_id = "${ aws_vpc.vpc.id }"
 
   tags {
-    Name              = "${var.vpc_name}-private"
+    Name = "${var.vpc_name}-private"
   }
 }
 

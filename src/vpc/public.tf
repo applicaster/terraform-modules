@@ -6,7 +6,7 @@ resource "aws_subnet" "public" {
   vpc_id            = "${ aws_vpc.vpc.id }"
 
   tags {
-    Name              = "${var.vpc_name}-public"
+    Name = "${var.vpc_name}-public"
   }
 }
 
