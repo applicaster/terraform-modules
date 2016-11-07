@@ -9,7 +9,6 @@ resource "aws_vpc" "vpc" {
 
   tags = {
     Name              = "${var.vpc_name}"
-    KubernetesCluster = "${ var.cluster_name }"
   }
 
   lifecycle {
@@ -22,7 +21,6 @@ resource "aws_internet_gateway" "gateway" {
 
   tags = {
     Name              = "${var.vpc_name}"
-    KubernetesCluster = "${ var.cluster_name }"
   }
 }
 

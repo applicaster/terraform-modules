@@ -7,7 +7,6 @@ resource "aws_subnet" "public" {
 
   tags {
     Name              = "${var.vpc_name}-public"
-    KubernetesCluster = "${ var.cluster_name }"
   }
 }
 

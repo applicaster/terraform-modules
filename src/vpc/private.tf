@@ -18,7 +18,6 @@ resource "aws_subnet" "private" {
 
   tags {
     Name              = "${var.vpc_name}-private"
-    KubernetesCluster = "${ var.cluster_name }"
   }
 }
 
@@ -27,7 +26,6 @@ resource "aws_route_table" "private" {
 
   tags {
     Name              = "${var.vpc_name}-private"
-    KubernetesCluster = "${ var.cluster_name }"
   }
 }
 
