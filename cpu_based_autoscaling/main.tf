@@ -36,9 +36,9 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu_utilization" {
   insufficient_data_actions = []
 }
 
-resource "aws_cloudwatch_metric_alarm" "medium_cpu_utilization" {
-  alarm_name        = "${var.autoscaling_group_name}-cpu-utilization-medium"
-  alarm_description = "Medium CPU utilization on ${var.autoscaling_group_name}"
+resource "aws_cloudwatch_metric_alarm" "low_cpu_utilization" {
+  alarm_name        = "${var.autoscaling_group_name}-cpu-utilization-low"
+  alarm_description = "Low CPU utilization on ${var.autoscaling_group_name}"
 
   metric_name = "CPUUtilization"
   namespace   = "AWS/EC2"
@@ -48,12 +48,12 @@ resource "aws_cloudwatch_metric_alarm" "medium_cpu_utilization" {
     "AutoScalingGroupName" = "${var.autoscaling_group_name}"
   }
 
-  comparison_operator = "GreaterThanOrEqualToThreshold"
+  comparison_operator = "LessThanOrEqualToThreshold"
   threshold           = "${var.scale_in_threshold}"
   period              = "${var.scale_in_period}"
   evaluation_periods  = "${var.scale_in_evaluation_periods}"
 
-  #    ok_actions = ["${aws_autoscaling_policy.scale_in.arn}"]
-  alarm_actions             = []
+  ok_actions                = []
+  alarm_actions             = ["${aws_autoscaling_policy.scale_in.arn}"]
   insufficient_data_actions = []
 }
