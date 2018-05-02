@@ -30,6 +30,7 @@ resource "aws_cloudwatch_metric_alarm" "high_cpu_utilization" {
   threshold           = "${var.scale_out_threshold}"
   period              = "${var.scale_out_period}"
   evaluation_periods  = "${var.scale_out_evaluation_periods}"
+  datapoints_to_alarm = "${var.scale_out_datapoints_to_alarm}"
 
   ok_actions                = []
   alarm_actions             = ["${aws_autoscaling_policy.scale_out.arn}"]
@@ -52,6 +53,7 @@ resource "aws_cloudwatch_metric_alarm" "low_cpu_utilization" {
   threshold           = "${var.scale_in_threshold}"
   period              = "${var.scale_in_period}"
   evaluation_periods  = "${var.scale_in_evaluation_periods}"
+  datapoints_to_alarm = "${var.scale_in_datapoints_to_alarm}"
 
   ok_actions                = []
   alarm_actions             = ["${aws_autoscaling_policy.scale_in.arn}"]

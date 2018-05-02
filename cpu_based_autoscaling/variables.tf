@@ -20,6 +20,11 @@ variable "scale_out_evaluation_periods" {
   default     = 2
 }
 
+variable "scale_out_datapoints_to_alarm" {
+  description = "Number of datapoints to consider for scale out to kick"
+  default     = 2
+}
+
 variable "scale_in_threshold" {
   description = "Average CPU (precent) afterwhich a scale in will happen"
   default     = 50
@@ -37,5 +42,9 @@ variable "scale_in_period" {
 
 variable "scale_in_evaluation_periods" {
   description = "Number of evaluation periods in order for scale in to kick"
+  default     = 5
+}
+variable "scale_in_datapoints_to_alarm" {
+  description = "Number of datapoints to consider for scale in to kick"
   default     = 5
 }
